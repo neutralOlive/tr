@@ -79,7 +79,7 @@ button {
 
 
 .color {
-    background-color: blue;
+    background-color: black;
 }
 
 
@@ -126,7 +126,7 @@ button {
 .minutes-container {
 
 /*     width: 14.8%; */
-    width: 14.7%;
+    width: 14.73%;
     height: 100%;
     display: inline-block;
     margin-right: 0px;
