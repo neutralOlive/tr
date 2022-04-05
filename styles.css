@@ -35,7 +35,7 @@ button {
 
     width: 90px;
     background: transparent;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .line {
@@ -126,7 +126,7 @@ button {
 .minutes-container {
 
 /*     width: 14.8%; */
-    width: 14%;
+    width: 14.3%;
     height: 100%;
     display: inline-block;
     margin-right: 0px;
