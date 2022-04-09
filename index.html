@@ -457,9 +457,15 @@
         writeTime();
     })
 
-
-    $().ready(function() {
-        $("#text").html("Text added by jQuery code.");
-    });
+    // if clicked, change to filled
+    document.querySelectorAll('.minutes-container').forEach(item => {
+        item.addEventListener('click', event => {
+            item.style.backgroundColor = "#373B3E";
+            console.log(item.id);
+        })
+    })
+//     $().ready(function() {
+//         $("#text").html("Text added by jQuery code.");
+//     });
 </script>
 </html>
