@@ -456,14 +456,26 @@
     button.addEventListener("click", function() {
         writeTime();
     })
-
+    
     // if clicked, change to filled
     document.querySelectorAll('.minutes-container').forEach(item => {
         item.addEventListener('click', event => {
-            item.style.backgroundColor = "#373B3E";
-            console.log(item.id);
+            if (item.classList.contains("filled")) {
+                item.style.backgroundColor = "#F9F9F9";
+                console.log("unfilled " + item.id);
+                item.classList.remove("filled");
+                item.classList.add("unfilled");
+
+            } else {
+                item.style.backgroundColor = "#373B3E";
+                console.log("filled " + item.id);
+                item.classList.remove("unfilled");
+                item.classList.add("filled");
+            }
+
         })
     })
+    
 //     $().ready(function() {
 //         $("#text").html("Text added by jQuery code.");
 //     });
