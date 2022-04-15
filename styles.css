@@ -110,6 +110,7 @@ button {
 .hour-written {
     border-right: 0.5px solid #CCD0D1;
 
+    background-color: #faf8f8;
 
     font-size: 15px;
     display: inline-block;
