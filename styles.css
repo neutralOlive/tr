@@ -54,7 +54,7 @@ button {
 }
 
 .left-container {
-    width: 25%;
+    width: 22%;
     height: 100%;
     position: relative;
 
@@ -65,11 +65,11 @@ button {
 }
 .period-container {
 
-
+    margin-top: 50px;
 }
 .center-container {
-    float: left;
-    width: 23%;
+    float: inline-start;
+    width: 26%;
     height: 88%;
     padding: 8px;
 
@@ -89,9 +89,9 @@ button {
 .timetable-container {
     display: inline-block;
     height: 100%;
-    width: 100%;
+    width: 95%;
     align-content: center;
-
+    margin: 2%;
     
 }
 
