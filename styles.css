@@ -54,7 +54,7 @@ button {
 }
 
 .left-container {
-    width: 22%;
+    width: 20%;
     height: 100%;
     position: relative;
 
@@ -68,7 +68,7 @@ button {
 /*     margin-top: 50px; */
 }
 .center-container {
-    float: inline-start;
+    float: left;
     width: 26%;
     height: 88%;
     padding: 8px;
