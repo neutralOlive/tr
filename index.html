@@ -403,7 +403,8 @@
 
                         stringSearch = tempHour.toString() + ":" + item.toString();
                         var colorThis = document.getElementById(stringSearch);
-                        colorThis.style.backgroundColor = "#A49393";
+//                         colorThis.style.backgroundColor = "#A49393";
+                        colorThis.style.backgroundColor = "#bdabb3";
                         colorThis.classList.add("filled");
 
                     }
@@ -415,7 +416,7 @@
                         minutes.forEach(function (item) {
                             stringSearch = tempHour.toString() + ":" + item.toString();
                             var colorThis = document.getElementById(stringSearch);
-                            colorThis.style.backgroundColor = "#A49393";
+                            colorThis.style.backgroundColor = "#bdabb3";
                             colorThis.classList.add("filled");
 
                         })
@@ -425,7 +426,7 @@
                             stringSearch = tempHour.toString() + ":" + item.toString();
 
                             var colorThis = document.getElementById(stringSearch);
-                            colorThis.style.backgroundColor = "#A49393";
+                            colorThis.style.backgroundColor = "#bdabb3";
                             colorThis.classList.add("filled");
 
                             }
@@ -440,7 +441,7 @@
                             stringSearch = tempHour.toString() + ":" + item.toString();
 
                             var colorThis = document.getElementById(stringSearch);
-                            colorThis.style.backgroundColor = "#A49393";
+                            colorThis.style.backgroundColor = "#bdabb3";
                             colorThis.classList.add("filled");
 
                         }
@@ -464,14 +465,14 @@
     // if clicked, change to filled
     document.querySelectorAll('.minutes-container').forEach(item => {
         item.addEventListener('click', event => {
-            if (item.classList.contains("filled")) {
+            if (item.classList.contains("filled")) { // remove bg
                 item.style.backgroundColor = "#F9F9F9";
                 console.log("unfilled " + item.id);
                 item.classList.remove("filled");
 //                 item.classList.add("unfilled");
 
-            } else {
-                item.style.backgroundColor = "#A49393";
+            } else { // fill bg color
+                item.style.backgroundColor = "#bdabb3";
                 console.log("filled " + item.id);
 //                 item.classList.remove("unfilled");
                 item.classList.add("filled");
