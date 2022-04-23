@@ -81,7 +81,7 @@ button {
 
 
 .color {
-    background-color: red;
+    background-color: blue;
 }
 
 
@@ -136,7 +136,9 @@ button {
 
     height: 100%;
     display: inline-block;
-    margin-right: 0px;
+/*     margin-right: 0px; */
+    margin: 0px;
+    padding: 0px;
     font-size: 20px;
 /*     border-left: 0.5px dashed white; */
 }
