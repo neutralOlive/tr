@@ -87,11 +87,14 @@ span {
 
 
 .color {
-    background-color: black;
+    /* background-color: black; */
+
 }
 
 .rightmost {
-    border: 0.5px solid #bdabb3;
+    border-right: 0.5px solid #bdabb3;
+    /* border-right: 0.5px solid red; */
+
 }
 
 
@@ -147,7 +150,7 @@ span {
 /*     margin-right: 0px; */
     margin: 0;
     padding: 0;
-    border: 0;
+    /* border: 0; */
     font-size: 0px;
     /* border-right: 0.5px solid #bdabb3; */
 /*     font-size: 20px; */

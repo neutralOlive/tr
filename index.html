@@ -1393,6 +1393,7 @@
 //                 item.classList.remove("unfilled");
                 item.classList.add("filled");
                 if (item.id.split(":")[1]=="59") {
+                    console.log("rightmost");
                     item.classList.add("rightmost");
                 }
             }
@@ -1414,6 +1415,8 @@
                     colorThis.style.backgroundColor = colorHex;
                     colorThis.classList.add("filled");
                     if (item.id.split(":")[1]=="59") {
+                        console.log("rightmost");
+
                         item.classList.add("rightmost");
                     }
                     tempMin++;
@@ -1432,6 +1435,8 @@
                 colorThis.style.backgroundColor = colorHex;
                 colorThis.classList.add("filled");
                 if (item.id.split(":")[1]=="59") {
+                    console.log("rightmost");
+
                     item.classList.add("rightmost");
                 }
                 tempMin++;
