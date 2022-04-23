@@ -97,7 +97,8 @@ button {
 }
 
 .hours-container {
-    border: 0.5px solid #CCD0D1;
+/*     border: 0.5px solid #CCD0D1; */
+    border: 0.2px solid rgb(239, 238, 238);
 
     height: 5%;
     float: left;
@@ -109,7 +110,8 @@ button {
 }
 
 .hour-written {
-    border-right: 0.5px solid #CCD0D1;
+/*     border-right: 0.5px solid #CCD0D1; */
+    border-right: 0.5px solid #e4e3df;
 
     background-color: #faf8f8;
 
@@ -129,7 +131,9 @@ button {
 .minutes-container {
 
 /*     width: 14.8%; */
-    width: 14.78%;
+/*     width: 14.78%; */
+    width: 1.498%;
+
     height: 100%;
     display: inline-block;
     margin-right: 0px;
