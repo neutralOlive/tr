@@ -1414,10 +1414,10 @@
                     var colorThis = document.getElementById(stringSearch);
                     colorThis.style.backgroundColor = colorHex;
                     colorThis.classList.add("filled");
-                    if (item.id.split(":")[1]=="59") {
+                    if (colorThis.id.split(":")[1]=="59") {
                         console.log("rightmost");
 
-                        item.classList.add("rightmost");
+                        colorThis.classList.add("rightmost");
                     }
                     tempMin++;
                 }
@@ -1434,10 +1434,10 @@
                 var colorThis = document.getElementById(stringSearch);
                 colorThis.style.backgroundColor = colorHex;
                 colorThis.classList.add("filled");
-                if (item.id.split(":")[1]=="59") {
+                if (colorThis.id.split(":")[1]=="59") {
                     console.log("rightmost");
 
-                    item.classList.add("rightmost");
+                    colorThis.classList.add("rightmost");
                 }
                 tempMin++;
             }
