@@ -23,7 +23,8 @@ span {
     display: inline;
     height: 100%;
 }
-button {
+
+#button {
     font-family: Georgia, Times, "Times New Roman", serif;
 
     color: #31383f;
@@ -36,6 +37,11 @@ button {
     width: 90px;
     background: transparent;
     font-size: 20px;
+}
+
+#readButton {
+    border: 0px;
+    background-color: transparent;
 }
 
 .line {
@@ -81,7 +87,7 @@ button {
 
 
 .color {
-    background-color: red
+    /* background-color: red */
 }
 
 
@@ -141,7 +147,7 @@ button {
     padding: 0;
     border: 0;
     font-size: 0px;
-    border-right: 0.5px solid #bdabb3;
+    /* border-right: 0.5px solid #bdabb3; */
 /*     font-size: 20px; */
 /*     border-left: 0.5px dashed white; */
 }
