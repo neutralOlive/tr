@@ -87,7 +87,7 @@ span {
 
 
 .color {
-    /* background-color: red */
+    background-color: black;
 }
 
 
@@ -138,7 +138,7 @@ span {
 
 /*     width: 14.8%; */
 /*     width: 14.78%; */
-    width: 1.494935%;
+    width: 1.494945%;
 
     height: 100%;
     display: inline-block;
