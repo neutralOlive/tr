@@ -90,7 +90,9 @@ span {
     background-color: black;
 }
 
-
+.rightmost {
+    border: 0.5px solid #bdabb3;
+}
 
 
 .timetable-container {
