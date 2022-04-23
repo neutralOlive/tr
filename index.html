@@ -1222,7 +1222,9 @@
     var endHour = 0;
     var endMin = 0;
     var endHour_without0 = 0;
+    var endMin_without0 = 0;
     var startHour_without0 = 0;
+    var startMin_without0 = 0;
     var periodContainer = document.querySelector(".period-container");
     var totaltimeContainer = document.querySelector("#totaltime-text");
     var work_until = new Date();
@@ -1250,6 +1252,7 @@
 
             // log current time
             startHour_without0 = now.getHours();
+            startMin_without0 = now.getMinutes();
             startHour = ('0' + now.getHours()).slice(-2);
             startMin = ('0' + (now.getMinutes())).slice(-2);
             const current = startHour + ':' + startMin;
@@ -1297,6 +1300,7 @@
             }
 
             endHour_without0 = now.getHours();
+            endMin_without0 = now.getMinutes();
             endHour = ('0' + now.getHours()).slice(-2);
             endMin = ('0' + (now.getMinutes())).slice(-2);
             const current = endHour + ':' + endMin;
@@ -1341,13 +1345,13 @@
             
             var stringSearch = "";
             var tempHour = startHour_without0;
-            var tempMin = startMin;
+            var tempMin = startMin_without0;
             
         // demo
             // tempHour = 15;
             // tempMin = 40;
             // endHour_without0 = 19;
-            // endMin = 4;
+            // endMin_without0 = 4;
 
         // determine which block to color
             while (endHour_without0 > tempHour) {       
@@ -1368,7 +1372,7 @@
             }
 
             console.log("endHour = " + endHour + "\tempHour = " + tempHour);
-            while (endMin >= tempMin) { // endhour = temphour
+            while (endMin_without0 >= tempMin) { // endhour = temphour
                 console.log(tempHour + ":" + tempMin) // comment this line out later
                 stringSearch = tempHour.toString() + ":" + tempMin.toString();
                 console.log("stringSearch = " + stringSearch);
