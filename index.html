@@ -1402,8 +1402,8 @@
     })
 
 // filling in colors
-    var colorHex = "#bdabb3";
-    function color(tempHour, tempMin, endHour_without0, endMin_without0) {
+    // var colorHex = "#bdabb3";
+    function color(tempHour, tempMin, endHour_without0, endMin_without0, colorHex) {
         while (endHour_without0 > tempHour) {       
                 console.log("endHour = " + endHour + "\tempHour = " + tempHour);
                 
@@ -1446,10 +1446,17 @@
 // when readRecordsButton is clicked
     function readRecords() {
         var records = document.getElementById("records").value;
-        var recordsArray = [];
+        var recordsArrayAca = [];
+        var recordsArrayNonAca = [];
+        console.log("records = " + records);
+        recordsArrayCategories = records.split("nonAca:");
 
-        recordsArray = records.split(".");
-        recordsArray.forEach(item => {
+        recordsArrayAca = recordsArrayCategories[0].split(".");
+        recordsArrayNonAca = recordsArrayCategories[1].split(".");
+        console.log("recordsArrayAca = " + recordsArrayAca);
+        console.log("recordsArrayNonAca = " + recordsArrayNonAca);
+
+        recordsArrayAca.forEach(item => {
             var tempArray = [];
             tempArray = item.split("-");
             var startingTime = parseInt(tempArray[0]);
@@ -1458,9 +1465,22 @@
             var startMin = startingTime % 60;
             var endHour = Math.floor(endingTime/60);
             var endMin = endingTime % 60;
-            color(startHour, startMin, endHour, endMin);
+            color(startHour, startMin, endHour, endMin, "#bdabb3");
+        })
+
+        recordsArrayNonAca.forEach(item => {
+            var tempArray = [];
+            tempArray = item.split("-");
+            var startingTime = parseInt(tempArray[0]);
+            var endingTime = parseInt(tempArray[1]);
+            var startHour = Math.floor(startingTime/60);
+            var startMin = startingTime % 60;
+            var endHour = Math.floor(endingTime/60);
+            var endMin = endingTime % 60;
+            color(startHour, startMin, endHour, endMin, "#E9DDD4");
 
         })
+
         // 1223-1234.1379-1380.1398-1399.1505-1507
 
     }
