@@ -1383,7 +1383,8 @@
                 console.log("unfilled " + item.id);
                 item.classList.remove("filled");
                 if (item.id.split(":")[1]=="59") {
-                    item.classList.remove("rightmost");
+                    item.style.borderRight = "none";
+
                 }
 //                 item.classList.add("unfilled");
 
@@ -1393,8 +1394,8 @@
 //                 item.classList.remove("unfilled");
                 item.classList.add("filled");
                 if (item.id.split(":")[1]=="59") {
-                    console.log("rightmost");
-                    item.classList.add("rightmost");
+                    item.style.borderRight = "0.5px solid #bdabb3";
+
                 }
             }
 
@@ -1415,9 +1416,8 @@
                     colorThis.style.backgroundColor = colorHex;
                     colorThis.classList.add("filled");
                     if (colorThis.id.split(":")[1]=="59") {
-                        console.log("rightmost");
+                        colorThis.style.borderRight = "0.5px solid" + colorHex;
 
-                        colorThis.classList.add("rightmost");
                     }
                     tempMin++;
                 }
@@ -1435,9 +1435,8 @@
                 colorThis.style.backgroundColor = colorHex;
                 colorThis.classList.add("filled");
                 if (colorThis.id.split(":")[1]=="59") {
-                    console.log("rightmost");
+                    colorThis.style.borderRight = "0.5px solid" + colorHex;
 
-                    colorThis.classList.add("rightmost");
                 }
                 tempMin++;
             }
