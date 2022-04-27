@@ -1226,10 +1226,10 @@
     var startMin = 0;
     var endHour = 0;
     var endMin = 0;
-    var endHour_without0 = 0;
-    var endMin_without0 = 0;
-    var startHour_without0 = 0;
-    var startMin_without0 = 0;
+    // var endHour_without0 = 0;
+    // var endMin_without0 = 0;
+    // var startHour_without0 = 0;
+    // var startMin_without0 = 0;
     var periodContainer = document.querySelector(".period-container");
     var totaltimeContainer = document.querySelector("#totaltime-text");
     var work_until = new Date();
@@ -1239,7 +1239,10 @@
     var work_until_hour;
     var work_until_min;
     var stringSearch = "";
-
+    var digitStartHour = 0;
+    var digitStartMin = 0;
+    var digitEndHour = 0;
+    var digitEndMin = 0;
 
 
 
@@ -1258,10 +1261,10 @@
             workTime_container.textContent = work_until_hour + ":" + work_until_min;
 
             // log current time
-            startHour_without0 = now.getHours();
-            startMin_without0 = now.getMinutes();
-            startHour = ('0' + now.getHours()).slice(-2);
-            startMin = ('0' + (now.getMinutes())).slice(-2);
+            digitStartHour = now.getHours();
+            digitStartMin = now.getMinutes(); 
+            startHour = ('0' + digitStartHour).slice(-2);
+            startMin = ('0' + digitStartMin).slice(-2);
             const current = startHour + ':' + startMin;
             
             // create new div and sylte it :
@@ -1306,10 +1309,10 @@
                 time_left = diff;
             }
 
-            endHour_without0 = now.getHours();
-            endMin_without0 = now.getMinutes();
-            endHour = ('0' + now.getHours()).slice(-2);
-            endMin = ('0' + (now.getMinutes())).slice(-2);
+            digitEndHour = now.getHours();
+            digitEndMin = now.getMinutes();
+            endHour = ('0' + digitEndHour).slice(-2);
+            endMin = ('0' + digitEndMin).slice(-2);
             const current = endHour + ':' + endMin;
 
             // change text :
@@ -1319,48 +1322,32 @@
             // change what it says in the button :
             button.textContent = "Go";
 
-            // change total time(sum) :
-            var digitStartHour = parseInt(startHour);
-            var digitStartMin = parseInt(startMin);
-            var digitEndHour = parseInt(endHour);
-            var digitEndMin = parseInt(endMin);
-            var date = 1;
-            if (digitEndHour < digitStartHour) {
-                var date = 2;
-            }
-            var startTime = new Date(2000, 0, 1,  digitStartHour, digitStartMin); 
-            var endTime = new Date(2000, 0, date, digitEndHour, digitEndMin); 
-            var diff = endTime - startTime;
-            var msec = diff;
-            var hh = Math.floor(msec / 1000 / 60 / 60);
-            msec -= hh * 1000 * 60 * 60;
-            var mm = Math.floor(msec / 1000 / 60);
-            msec -= mm * 1000 * 60;
+        // change total time(sum) :
+            // var digitStartHour = parseInt(startHour);
+            // var digitStartMin = parseInt(startMin);
+            // var digitEndHour = parseInt(endHour);
+            // var digitEndMin = parseInt(endMin);
+            countTotalTime(digitStartHour, digitStartMin, digitEndHour, digitEndMin);
 
 
-            // type in the end time :
-            var sum = totaltimeContainer.textContent.split(":")
-            var sumHour = parseInt(sum[0]);
-            var sumMin = parseInt(sum[1]);
-            sumHour += hh;
-            sumMin += mm;
-            while (sumMin >= 60) {
-                sumHour += 1;
-                sumMin -= 60;
+            if (digitStartHour < 3) {
+                digitStartHour += 24; 
             }
-            totaltimeContainer.textContent = sumHour + " : " + sumMin;
+            if (digitEndHour < 3) {
+                digitEndHour += 24;
+            }
+            var tempHour = digitStartHour;
+            var tempMin = digitStartMin;
+            console.log("")
             
-            var tempHour = startHour_without0;
-            var tempMin = startMin_without0;
-            
-        // demo
+        // demo #1
             // tempHour = 15;
             // tempMin = 40;
             // endHour_without0 = 19;
             // endMin_without0 = 4;
-
+        // demo #2
         // determine which block to color
-            color(tempHour, tempMin, endHour_without0, endMin_without0, "#bdabb3");
+            color(tempHour, tempMin, digitEndHour, digitEndMin, "#bdabb3");
 
 
             // change var :
@@ -1369,7 +1356,7 @@
         
     }
 
-    // clicking button :
+    // BUTTON :
     var button = document.getElementById("button")
     button.addEventListener("click", function() {
         writeTime();
@@ -1382,6 +1369,7 @@
                 item.style.backgroundColor = "#F9F9F9";
                 console.log("unfilled " + item.id);
                 item.classList.remove("filled");
+                changeTotalTimeText(0, -1);
                 if (item.id.split(":")[1]=="59") {
                     item.style.borderRight = "none";
 
@@ -1393,6 +1381,7 @@
                 console.log("filled " + item.id);
 //                 item.classList.remove("unfilled");
                 item.classList.add("filled");
+                changeTotalTimeText(0, 1);
                 if (item.id.split(":")[1]=="59") {
                     item.style.borderRight = "0.5px solid #bdabb3";
 
@@ -1404,8 +1393,8 @@
 
 // filling in colors
     // var colorHex = "#bdabb3";
-    function color(tempHour, tempMin, endHour_without0, endMin_without0, colorHex) {
-        while (endHour_without0 > tempHour) {       
+    function color(tempHour, tempMin, digitEndHour, digitEndMin, colorHex) {
+        while (digitEndHour > tempHour) {       
                 console.log("endHour = " + endHour + "\tempHour = " + tempHour);
                 
                 while (59 >= tempMin) {
@@ -1427,7 +1416,7 @@
             }
 
             console.log("endHour = " + endHour + "\tempHour = " + tempHour);
-            while (endMin_without0 >= tempMin) { // endhour = temphour
+            while (digitEndMin >= tempMin) { // endhour = temphour
                 console.log(tempHour + ":" + tempMin) // comment this line out later
                 stringSearch = tempHour.toString() + ":" + tempMin.toString();
                 console.log("stringSearch = " + stringSearch);
@@ -1442,12 +1431,26 @@
             }
     }
 
-// when readRecordsButton is clicked
+// CHANGE TOTAL TIME :
+    function changeTotalTimeText(hh, mm) {
+        var sum = totaltimeContainer.textContent.split(":")
+        var sumHour = parseInt(sum[0]);
+        var sumMin = parseInt(sum[1]);
+        sumHour += hh;
+        sumMin += mm;
+        while (sumMin >= 60) {
+            sumHour += 1;
+            sumMin -= 60;
+        }
+        totaltimeContainer.textContent = sumHour + " : " + sumMin;
+    }
+
+// when readRecordsButton is clicked :
     function readRecords() {
         var records = document.getElementById("records").value;
         var recordsArrayAca = [];
         var recordsArrayNonAca = [];
-        console.log("records = " + records);
+        // console.log("records = " + records);
         recordsArrayCategories = records.split("nonAca:");
 
         recordsArrayAca = recordsArrayCategories[0].split(".");
@@ -1465,6 +1468,8 @@
             var endHour = Math.floor(endingTime/60);
             var endMin = endingTime % 60;
             color(startHour, startMin, endHour, endMin, "#bdabb3");
+            countTotalTime(startHour, startMin, endHour, endMin);
+
         })
 
         recordsArrayNonAca.forEach(item => {
@@ -1477,11 +1482,29 @@
             var endHour = Math.floor(endingTime/60);
             var endMin = endingTime % 60;
             color(startHour, startMin, endHour, endMin, "#F9E085");
-
+            countTotalTime(startHour, startMin, endHour, endMin);
         })
 
         // 1223-1234.1379-1380.1398-1399.1505-1507
 
+    }
+
+    function countTotalTime(digitStartHour, digitStartMin, digitEndHour, digitEndMin) {
+        var date = 1;
+        if (digitEndHour < digitStartHour) {
+            var date = 2;
+        }
+        var startTime = new Date(2000, 0, 1,  digitStartHour, digitStartMin); 
+        var endTime = new Date(2000, 0, date, digitEndHour, digitEndMin); 
+        var diff = endTime - startTime;
+        var msec = diff;
+        var hh = Math.floor(msec / 1000 / 60 / 60);
+        msec -= hh * 1000 * 60 * 60;
+        var mm = Math.floor(msec / 1000 / 60);
+        msec -= mm * 1000 * 60;
+
+    // type in the end time : 
+        changeTotalTimeText(hh, mm);
     }
 //     $().ready(function() {
 //         $("#text").html("Text added by jQuery code.");
