@@ -1243,8 +1243,12 @@
     var digitStartMin = 0;
     var digitEndHour = 0;
     var digitEndMin = 0;
-
-
+    var unfilledHex = "#F9F9F9";
+    var backgroundHex = "#E4DCDF";
+    // var academicFillHex = "#bdabb3";
+    var academicFillHex = "#E9D3D1";
+    // var nonAcaFillHex = "#F9E085";
+    var nonAcaFillHex = "#E2BBB6";
 
     function writeTime() {
 
@@ -1347,9 +1351,7 @@
             // endMin_without0 = 4;
         // demo #2
         // determine which block to color
-            color(tempHour, tempMin, digitEndHour, digitEndMin, "#bdabb3");
-
-
+            color(tempHour, tempMin, digitEndHour, digitEndMin, academicFillHex);
             // change var :
             paused = 0;
         }
@@ -1366,7 +1368,7 @@
     document.querySelectorAll('.minutes-container').forEach(item => {
         item.addEventListener('click', event => {
             if (item.classList.contains("filled")) { // remove bg
-                item.style.backgroundColor = "#F9F9F9";
+                item.style.backgroundColor = unfilledHex;
                 console.log("unfilled " + item.id);
                 item.classList.remove("filled");
                 changeTotalTimeText(0, -1);
@@ -1377,13 +1379,13 @@
 //                 item.classList.add("unfilled");
 
             } else { // fill bg color
-                item.style.backgroundColor = "#bdabb3";
+                item.style.backgroundColor = academicFillHex;
                 console.log("filled " + item.id);
 //                 item.classList.remove("unfilled");
                 item.classList.add("filled");
                 changeTotalTimeText(0, 1);
                 if (item.id.split(":")[1]=="59") {
-                    item.style.borderRight = "0.5px solid #bdabb3";
+                    item.style.borderRight = "0.5px solid" + academicFillHex;
 
                 }
             }
@@ -1392,7 +1394,6 @@
     })
 
 // filling in colors
-    // var colorHex = "#bdabb3";
     function color(tempHour, tempMin, digitEndHour, digitEndMin, colorHex) {
         while (digitEndHour > tempHour) {       
                 console.log("endHour = " + endHour + "\tempHour = " + tempHour);
@@ -1442,6 +1443,10 @@
             sumHour += 1;
             sumMin -= 60;
         }
+        while (sumMin < 0) {
+            sumHour -= 1;
+            sumMin += 60;
+        }
         totaltimeContainer.textContent = sumHour + " : " + sumMin;
     }
 
@@ -1467,7 +1472,7 @@
             var startMin = startingTime % 60;
             var endHour = Math.floor(endingTime/60);
             var endMin = endingTime % 60;
-            color(startHour, startMin, endHour, endMin, "#bdabb3");
+            color(startHour, startMin, endHour, endMin, academicFillHex);
             countTotalTime(startHour, startMin, endHour, endMin);
 
         })
@@ -1481,7 +1486,7 @@
             var startMin = startingTime % 60;
             var endHour = Math.floor(endingTime/60);
             var endMin = endingTime % 60;
-            color(startHour, startMin, endHour, endMin, "#F9E085");
+            color(startHour, startMin, endHour, endMin, nonAcaFillHex);
             countTotalTime(startHour, startMin, endHour, endMin);
         })
 
@@ -1506,8 +1511,6 @@
     // type in the end time : 
         changeTotalTimeText(hh, mm);
     }
-//     $().ready(function() {
-//         $("#text").html("Text added by jQuery code.");
-//     });
+
 </script>
 </html>
